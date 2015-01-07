@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # * **************************************************************** **
 #
@@ -35,8 +36,8 @@ MOTOR_DISTANCE_ENABLED = False
 # normally the module combo boxes are 150. But events are long strings
 EVENT_COMBO_PIXELS = 200
 
-CONSTANT = "<-Constant"
-NO_VAR = "-No Variable-"
+CONSTANT = "<-Konstant"
+NO_VAR = "-Muutuja puudub-"
 MOTHERBOARD = '*Motherboard*'
 
 LCD_CLEAR_SCREEN = "Clear screen"
@@ -44,19 +45,19 @@ LCD_SCROLL_LINE = "Scroll line"
 
 MAX_TUNE_STORE = 17
 
-MATH_PLUS = "plus"
-MATH_SUB = "minus"
-MATH_MULT = "multiply"
-MATH_NOT = "not (bitwise)"
-MATH_DIV = "divide"
-MATH_MOD = "modulus"
+MATH_PLUS = "pluss"
+MATH_SUB = "miinus"
+MATH_MULT = "korrutamine"
+MATH_NOT = "ei (bitwise)"
+MATH_DIV = "jagamine"
+MATH_MOD = "jääk"
 MATH_LSHIFT = "left shift"
 MATH_RSHIFT = "right shift"
-MATH_AND = "and (bitwise)"
-MATH_OR = "or (bitwise)"
+MATH_AND = "ja (bitwise)"
+MATH_OR = "või (bitwise)"
 MATH_XOR = "xor (bitwise)"
 
-MODULE_PROMPT = "Control:"
+MODULE_PROMPT = "Juhitav:"
 
 CONST_SIZE = (130,-1)
 SAVE_LABEL = "Save changes"
@@ -65,56 +66,56 @@ U_NAME = "0-255"
 S_NAME = "+/- 32767"
 
 #tone_notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
-tone_notes = ["A (6th)", "A# (6th)", "B (6th)", "C", "C#", "D", "D#", "E", "F", "F#",
-              "G", "G#", "A", "A#", "B", "C (8th)", "Rest"]
-tone_durations = ["sixteenth", "eighth", "quarter", "half", "whole"]
+tone_notes = ["A (6. oktav)", "A# (6. oktav)", "B (6. oktav)", "C", "C#", "D", "D#", "E", "F", "F#",
+              "G", "G#", "A", "A#", "B", "C (8. oktav)", "Paus"]
+tone_durations = ["kuueteistkümnendik", "kaheksandik", "veerandnoot", "poolnoot", "täisnoot"]
 
-TRACKER_0_STATUS = "On reflective surface"
-TRACKER_1_STATUS = "On non-reflective surface"
+TRACKER_0_STATUS = "Valgust peegeldaval pinnal"
+TRACKER_1_STATUS = "Mitte peegeldaval pinnal"
 
 #                           title,      (mod,bit),       if_variant
-EVENT_DICT = {'Keypad': (
-                  ('Triangle button pressed', ('_devices', 0), 'button'),
+EVENT_DICT = {'Nupud': (
+                  ('Kolmnurkse nupu vajutus', ('_devices', 0), 'button'),
                   #('Square button pressed', ('_devices', 1), 'button'),
-                  ('Round button pressed', ('_devices', 2), 'button'),),
-              'Countdown timer': (
-                  ('Timer finished', ('_timers', 0), 'timer'),),
+                  ('Ümmarguse nupu vajutus', ('_devices', 2), 'button'),),
+              'Mahalugev taimer': (
+                  ('Taimer jõudis nulli', ('_timers', 0), 'timer'),),
               #'Left Drive' : (
               #    ('Left Strain detected', (None, 0), 'motor'),),
-              'Drive' : (
-                  ('Strain detected', (None, 0), 'motor'),),
-              'Music' : (
-                  ('Tune finished', (None, 0), 'timer'),),
-              'Detect clap' : (
-                  ('Clap detected', (None, 2), 'clap'),),
-              'Data from another Edison': (
+              'Mootor' : (
+                  ('Suur koormus tuvastatud', (None, 0), 'motor'),),
+              'Muusika' : (
+                  ('Meloodia mängitud', (None, 0), 'timer'),),
+              'Plaksu tuvastus' : (
+                  ('Plaks tuvastatud', (None, 2), 'clap'),),
+              'Andmed teiselt Edisonilt': (
                   ('IR Character', (None, 0), 'irrx'),),
-              'Detect obstacle' : (
-                  ('Obstacle at front', (None,4), 'obstacle'),
-                  ('Obstacle at left', (None,5), 'obstacle'),
-                  ('Obstacle at right', (None,3), 'obstacle'),
-                  ('Any Obstacle detected', (None,6), 'obstacle'),),
-              'Data from TV remote': (
-                  ('Match #0 remote code', (None, 1), 'remote'),
-                  ('Match #1 remote code', (None, 1), 'remote'),
-                  ('Match #2 remote code', (None, 1), 'remote'),
-                  ('Match #3 remote code', (None, 1), 'remote'),
-                  ('Match #4 remote code', (None, 1), 'remote'),
-                  ('Match #5 remote code', (None, 1), 'remote'),
-                  ('Match #6 remote code', (None, 1), 'remote'),
-                  ('Match #7 remote code', (None, 1), 'remote'),
-                  ('Match #8 remote code', (None, 1), 'remote'),
-                  ('Any match remote code', (None, 1), 'remote'),),
-              'Line Tracker' : (
+              'Takistuse tuvastus' : (
+                  ('Takistus ees', (None,4), 'obstacle'),
+                  ('Takistus vasakul', (None,5), 'obstacle'),
+                  ('Takistus paremal', (None,3), 'obstacle'),
+                  ('Takistus tuvastatud', (None,6), 'obstacle'),),
+              'Andmed puldilt': (
+                  ('Puldi kood #0', (None, 1), 'remote'),
+                  ('Puldi kood #1', (None, 1), 'remote'),
+                  ('Puldi kood #2', (None, 1), 'remote'),
+                  ('Puldi kood #3', (None, 1), 'remote'),
+                  ('Puldi kood #4', (None, 1), 'remote'),
+                  ('Puldi kood #5', (None, 1), 'remote'),
+                  ('Puldi kood #6', (None, 1), 'remote'),
+                  ('Puldi kood #7', (None, 1), 'remote'),
+                  ('Puldi kood #8', (None, 1), 'remote'),
+                  ('Suvaline puldi kood', (None, 1), 'remote'),),
+              'Joone tuvastus' : (
                   (TRACKER_0_STATUS, (None, 1), 'tracker'),
                   (TRACKER_1_STATUS, (None, 1), 'tracker'),
-                  ('Any change', (None, 1), 'tracker'),),
+                  ('Iga muutus', (None, 1), 'tracker'),),
               }
 
-EVENT_ALIASES = [(MOTHERBOARD, "Keypad"), (MOTHERBOARD, "Countdown timer"),
-                 ("Right_Motor", "Drive"), ("SOUNDER1", "Music"), ("SOUNDER1", "Detect clap"),
-                 ("IR_RECEIVER1", "Data from another Edison"), ("IR_RECEIVER1", "Detect obstacle"),
-                 ("IR_RECEIVER1", "Data from TV remote"), ("LINE_TRACKER1", "Line Tracker") ]
+EVENT_ALIASES = [(MOTHERBOARD, "Nupud"), (MOTHERBOARD, "Mahalugev taimer"),
+                 ("Right_Motor", "Mootor"), ("SOUNDER1", "Muusika"), ("SOUNDER1", "Plaksu tuvastus"),
+                 ("IR_RECEIVER1", "Andmed teiselt Edisonilt"), ("IR_RECEIVER1", "Takistuse tuvastus"),
+                 ("IR_RECEIVER1", "Andmed puldilt"), ("LINE_TRACKER1", "Joone tuvastus") ]
 
 INVALID_NEW_EVENTS = ['Match #0 remote code', 'Match #1 remote code',
                       'Match #2 remote code', 'Match #3 remote code',
@@ -122,18 +123,18 @@ INVALID_NEW_EVENTS = ['Match #0 remote code', 'Match #1 remote code',
                       'Match #6 remote code', 'Match #7 remote code',
                       'Match #8 remote code']
 
-MOTOR_FWD = "Forward"
-MOTOR_STP = "Stop"
-MOTOR_BCK = "Backward"
+MOTOR_FWD = "Edasi"
+MOTOR_STP = "Stopp"
+MOTOR_BCK = "Tagasi"
 
-MOTOR_P_RT = "Forward right"
-MOTOR_P_LT = "Forward left"
-MOTOR_P_BL = "Back left"
-MOTOR_P_BR = "Back right"
-MOTOR_P_SR = "Spin right"
-MOTOR_P_SL = "Spin left"
-MOTOR_P_RT_90 = "Turn right 90"
-MOTOR_P_LT_90 = "Turn left 90"
+MOTOR_P_RT = "Edasi paremale"
+MOTOR_P_LT = "Edasi vasakule"
+MOTOR_P_BL = "Tagasi vasakule"
+MOTOR_P_BR = "Tagasi paremale"
+MOTOR_P_SR = "Spinn paremale"
+MOTOR_P_SL = "Spinn vasakule"
+MOTOR_P_RT_90 = "Pööre paremale 90°"
+MOTOR_P_LT_90 = "Pööre vasakule 90°"
 
 
 MOTOR_CODE = {"F":0x80, "B":0x40, "S":0xc0, "FD":0xa0, "BD":0x60}
@@ -406,9 +407,9 @@ class Detail_win(wx.ScrolledWindow):
 
 
     def make_headings(self, grid, loc):
-        grid.Add(wx.StaticText(self, -1, "Constant"), loc, flag=wx.ALIGN_CENTRE)
+        grid.Add(wx.StaticText(self, -1, "Konstant"), loc, flag=wx.ALIGN_CENTRE)
         loc = (loc[0], loc[1]+1)
-        grid.Add(wx.StaticText(self, -1, "Variable"), loc, flag=wx.ALIGN_CENTRE)
+        grid.Add(wx.StaticText(self, -1, "Muutuja"), loc, flag=wx.ALIGN_CENTRE)
 
 
     def save_initial(self):
@@ -536,12 +537,12 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
-        rbs = self.make_radio_buttons(["Musical note", "Tune string"])
+        rbs = self.make_radio_buttons(["Noot", "Meloodiastring"])
         modules = win_data.config_device_names('Sounder')
         mod_choice = self.make_combo(modules)
 
@@ -704,7 +705,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
@@ -789,24 +790,24 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
         if (self.name == 'LED'):
             mod_type = 'LED'
-            levels = ['On', 'Off']
-            prompt = "LED Setting:"
+            levels = ['Sisse', 'Välja']
+            prompt = "LED:"
 
         elif (self.name == "Obstacle Detection"):
             mod_type = 'IR Transmitter'
-            levels = ['On', 'Off']
-            prompt = "IR Transmitter obstacle detection:"
+            levels = ['Sisse', 'Välja']
+            prompt = "Takistuse tuvastus infrapuna saatjaga:"
         else:
             mod_type = 'Line Tracker'
-            levels = ['On', 'Off']
-            prompt = "Line Tracker LED:"
+            levels = ['Sisse', 'Välja']
+            prompt = "Joone jälgija LED:"
 
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
@@ -938,7 +939,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1021,13 +1022,13 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
         mod_type = 'IR Transmitter'
-        prompt = "Character to send:"
+        prompt = "Saadetav sümbol:"
 
         modules = win_data.config_device_names(mod_type)
         mod_choice = self.make_combo(modules)
@@ -1130,7 +1131,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1226,7 +1227,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
@@ -1280,7 +1281,7 @@ class Detail_win(wx.ScrolledWindow):
             self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
-        self.add_with_prompt(grid, (grid_line,0), "Variable to read into:", (ctrl,))
+        self.add_with_prompt(grid, (grid_line,0), "Lugem muutujasse:", (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1426,7 +1427,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1448,8 +1449,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (mod_choice,ctrl)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Sense:", (mod_choice,))
-        self.add_with_prompt(grid, (1,0), "Variable to read into:", (ctrl,))
+        self.add_with_prompt(grid, (0,0), "Sensor:", (mod_choice,))
+        self.add_with_prompt(grid, (1,0), "Lugem muutujasse:", (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1520,7 +1521,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1610,7 +1611,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1618,10 +1619,10 @@ class Detail_win(wx.ScrolledWindow):
             extra = 'Last character received'
             v_type = U_NAME
         elif (self.name == 'Read Timer'):
-            extra = 'Timer value'
+            extra = 'Taimeri väärtus'
             v_type = S_NAME
         else:
-            extra = 'Button pressed'
+            extra = 'Vajutatud nupp'
             v_type = U_NAME
 
         choices = win_data.vars_names(v_type)
@@ -1634,7 +1635,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (ctrl,)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Variable to read into:", (ctrl,), extra_info=extra)
+        self.add_with_prompt(grid, (0,0), "Lugem muutujasse:", (ctrl,), extra_info=extra)
 
         self.bind_event_handlers()
 
@@ -1704,13 +1705,13 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Set Timer'):
-            prompt = "Seconds:"
-            extra_info = "Range is 0.00 to 327.67 seconds."
+            prompt = "Sekundit:"
+            extra_info = "Väärtus peab olema 0.00 ja 327.67 sekundi vahel."
         else:
             pass
 
@@ -1801,7 +1802,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -1931,7 +1932,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2071,14 +2072,14 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Increment'):
-            prompt = "Plus 1 to variable"
+            prompt = "Üks juurde muutujale:"
         else:
-            prompt = "Minus 1 from variable"
+	    prompt = "Üks maha muutujast:"
 
         choices = win_data.vars_names()
         ctrl = self.make_combo(choices, add_const=False)
@@ -2156,7 +2157,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2171,8 +2172,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (var,)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Value:", (value,))
-        self.add_with_prompt(grid, (1,0), "Variable to set:", (var,))
+        self.add_with_prompt(grid, (0,0), "Väärtus:", (value,))
+	self.add_with_prompt(grid, (1,0), "Muutuja:", (var,))
 
         self.bind_event_handlers()
 
@@ -2236,7 +2237,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2251,8 +2252,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (copy_from, copy_to)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Copy data from variable:", (copy_from,))
-        self.add_with_prompt(grid, (1,0), "Copy data to variable:", (copy_to,))
+        self.add_with_prompt(grid, (0,0), "Kopeerimine muutujast:", (copy_from,))
+        self.add_with_prompt(grid, (1,0), "Kopeerimine muutujasse:", (copy_to,))
 
         self.bind_event_handlers()
 
@@ -2553,8 +2554,8 @@ class Detail_win(wx.ScrolledWindow):
             grid_line += 1
 
         self.make_headings(grid, (grid_line,1))
-        self.add_with_prompt(grid, (grid_line+1,0), "Direction:", dirs)
-        self.add_with_prompt(grid, (grid_line+2,0), "Speed:", speed)
+        self.add_with_prompt(grid, (grid_line+1,0), "Suund:", dirs)
+        self.add_with_prompt(grid, (grid_line+2,0), "Kiirus:", speed)
         
         if (MOTOR_DISTANCE_ENABLED):
             self.add_with_prompt(grid, (grid_line+3,0), "Distance:", dist_units, ctrl_span=(1,2))
@@ -2773,7 +2774,7 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
@@ -2785,12 +2786,12 @@ class Detail_win(wx.ScrolledWindow):
             main_choices = win_data.vars_names(U_NAME)
             basic_choices = win_data.vars_names(U_NAME)
             shift_choices = win_data.vars_names(U_NAME)
-            buttons = ["Basic", "Divide", "Logical"]
+            buttons = ["Põhitehted", "Jagamine", "Loogika"]
         else:
             main_choices = win_data.vars_names(S_NAME)
             basic_choices = win_data.vars_names(S_NAME)
             shift_choices = win_data.vars_names(S_NAME)
-            buttons = ["Basic", "Divide"]
+            buttons = ["Põhitehted", "Jagamine"]
 
         rbs = self.make_radio_buttons(buttons)
 
@@ -2833,16 +2834,16 @@ class Detail_win(wx.ScrolledWindow):
         self.add_with_prompt(grid, (0,1), "Variable:", main_var, ctrl_span=(1,2), expand=False)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (1,1), "Operation:", basic_op)
+        self.add_with_prompt(grid, (1,1), "Tehe:", basic_op)
         self.add_with_prompt(grid, (2,1), "Argument:", basic_arg)
 
         grid.Add(rbs[1], (3,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-        self.add_with_prompt(grid, (3,1), "Operation:", shift_op)
+        self.add_with_prompt(grid, (3,1), "Tehe:", shift_op)
         self.add_with_prompt(grid, (4,1), "Argument:", shift_arg)
 
         if (self.name == 'Maths Basic'):
             grid.Add(rbs[2], (5,0), flag=wx.ALIGN_CENTRE_VERTICAL)
-            self.add_with_prompt(grid, (5,1), "Operation:", logical_op)
+            self.add_with_prompt(grid, (5,1), "Tehe:", logical_op)
             self.add_with_prompt(grid, (6,1), "Argument:", logical_arg)
 
         self.bind_event_handlers()
@@ -3552,7 +3553,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice,)
         self.rbs = None
 
-        grid.Add(wx.StaticText(self, -1, "Event happens:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, "Toimub sündmus:"), (0,1), flag=wx.ALIGN_LEFT)
 
         self.add_with_prompt(grid, (1,1), "", (mod_choice,))
         self.add_with_prompt(grid, (1,2), "", (self.event_choice,))
@@ -3649,7 +3650,7 @@ class Detail_win(wx.ScrolledWindow):
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Seconds pass", "Event happens"])
+        rbs = self.make_radio_buttons(["Möödub sekundeid", "Toimub sündmus"])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
@@ -3668,7 +3669,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice,)
         self.rbs = rbs
 
-        grid.Add(wx.StaticText(self, -1, "Wait Until:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, "Ootamine kuni:"), (0,1), flag=wx.ALIGN_LEFT)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
         self.add_with_prompt(grid, (1,1), "", time)
@@ -3693,8 +3694,8 @@ class Detail_win(wx.ScrolledWindow):
             self.switch_group(rbs[values[0]])
 
         else:
-            mod_choice.SetValue("Keypad")
-            self.do_event_change("Keypad")
+            mod_choice.SetValue("Nupud")
+            self.do_event_change("Nupud")
             self.switch_constants()
             self.switch_group(rbs[0])
 
@@ -3819,7 +3820,7 @@ class Detail_win(wx.ScrolledWindow):
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Test passes", "Event happens", "Loop forever"])
+        rbs = self.make_radio_buttons(["Võrdus on tõene", "Toimub sündmus", "Lõputult"])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS, -1))
@@ -3841,7 +3842,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (self.event_choice, test[0], test[1])
         self.rbs = rbs
 
-        grid.Add(wx.StaticText(self, -1, "Loop UNTIL:"), (0,1), flag=wx.ALIGN_LEFT)
+        grid.Add(wx.StaticText(self, -1, "Kordus KUNI:"), (0,1), flag=wx.ALIGN_LEFT)
 
         # BED - moved the order without changing the tables so that I didn't have
         # to change the _convert function
@@ -3869,8 +3870,8 @@ class Detail_win(wx.ScrolledWindow):
             self.switch_group(rbs[values[0]])
 
         else:
-            mod_choice.SetValue("Keypad")
-            self.do_event_change("Keypad")
+            mod_choice.SetValue("Nupud")
+            self.do_event_change("Nupud")
             # special set to loop forever
             self.switch_group(rbs[2])
 
@@ -4008,11 +4009,11 @@ class Detail_win(wx.ScrolledWindow):
         if (self.prop_title):
             self.title.SetLabel(self.prop_title)
         else:
-            self.title.SetLabel("%s - properties:" % (self.name))
+            self.title.SetLabel("%s - parameetrid:" % (self.name))
 
         grid = wx.GridBagSizer(5, 5)
 
-        rbs = self.make_radio_buttons(["Test passes", "Event happens"])
+        rbs = self.make_radio_buttons(["Võrdus on tõene", "Toimunud on sündmus"])
 
         modules = self.get_event_modules()
         mod_choice = self.make_combo(modules, size=(EVENT_COMBO_PIXELS,-1))
@@ -4036,7 +4037,7 @@ class Detail_win(wx.ScrolledWindow):
 
         self.cb_special = self.if_special_cb_change
 
-        grid.Add(wx.StaticText(self, -1, "Take the top (True) branch if:"), (0,1),
+        grid.Add(wx.StaticText(self, -1, "Ülemine (tõene) tee võetakse KUI:"), (0,1),
                  span=(1,2), flag=wx.ALIGN_LEFT)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
@@ -4046,7 +4047,7 @@ class Detail_win(wx.ScrolledWindow):
         self.add_with_prompt(grid, (2,1), "", (mod_choice,))
         self.add_with_prompt(grid, (2,2), "", (self.event_choice,), ctrl_span=(1,2))
 
-        grid.Add(wx.StaticText(self, -1, "Else take the bottom (False) branch."), (3,1),
+        grid.Add(wx.StaticText(self, -1, "Vastasel juhul võetakse alumine (väär) tee."), (3,1),
                  span=(1,2), flag=wx.ALIGN_LEFT)
 
         self.bind_event_handlers()
@@ -4062,8 +4063,8 @@ class Detail_win(wx.ScrolledWindow):
             self.switch_group(rbs[values[0]])
 
         else:
-            mod_choice.SetValue("Keypad")
-            self.do_event_change("Keypad")
+            mod_choice.SetValue("Nupud")
+            self.do_event_change("Nupud")
             self.switch_group(rbs[0])
             win_data.program().set_bric_if_variant(bric_id, "var")
 

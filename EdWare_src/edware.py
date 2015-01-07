@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # * **************************************************************** **
 #
@@ -105,15 +106,15 @@ class Bricworks_frame(wx.Frame):
                            ("&Exit", "Exit EdWare", self.menu_exit)),
 
 
-                          ("&Program Edison",
-                           ("Program &Edison", "Program Edison",
+                          ("&Edisoni programmeerimine",
+                           ("Programmeeri &Edison", "Program Edison",
                             self.menu_edison_program),
                            ("", "", ""),
-                           ("&Check program size", "Report on the bytes and variables used in the program",
+                           ("&Kontrolli programmi suurust", "Report on the bytes and variables used in the program",
                             self.menu_check_program),
 
                            ("", "", ""),
-                           ("&Download new firmware", "Download new firmware to Edison",
+                           ("&Laadi uus püsivara Edisoni", "Download new firmware to Edison",
                             self.menu_edison_firmware),
                            ),
                           ("&Help",
@@ -513,19 +514,19 @@ class Bricworks_frame(wx.Frame):
         self.zoom_combo_box = wx.ComboBox(self.tool_bar, self.zoom_id, "100%",
                                           choices = ["50%", "60%", "70%", "80%", "90%",
                                                      "100%", "120%", "150%"], size=(100, -1))
-        self.tool_bar.AddControl(wx.StaticText(self.tool_bar, -1, " Zoom "))
+        self.tool_bar.AddControl(wx.StaticText(self.tool_bar, -1, " Suurendus "))
         self.tool_bar.AddControl(self.zoom_combo_box)
         self.Bind(wx.EVT_COMBOBOX, self.on_change_zoom, id=self.zoom_id)
 
         self.tool_bar.AddSeparator()
         self.add_var_id = wx.NewId()
-        self.add_var_button = wx.Button(self.tool_bar, self.add_var_id, "Add Variable", size=(120,-1))
+        self.add_var_button = wx.Button(self.tool_bar, self.add_var_id, "Lisa muutuja", size=(120,-1))
         self.tool_bar.AddControl(self.add_var_button)
         self.Bind(wx.EVT_BUTTON, self.on_add_variable, id=self.add_var_id)
 
         self.tool_bar.AddSeparator()
         self.add_prog_id = wx.NewId()
-        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, "Program Edison", size=(140,-1))
+        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, "Programmeeri Edison", size=(140,-1))
         self.tool_bar.AddControl(self.add_prog_button)
         self.Bind(wx.EVT_BUTTON, self.on_program_button, id=self.add_prog_id)
 

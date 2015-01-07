@@ -35,7 +35,7 @@ class Help_win(wx.Panel):
         #self.SetVirtualSize((120, 100))
         #self.SetScrollRate(20, 20)
         
-        box = wx.StaticBox(self, -1, 'Help')
+        box = wx.StaticBox(self, -1, 'Abi')
         sboxsizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sboxsizer.Add(self.help_text, 1, wx.EXPAND)
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 # * **************************************************************** **
 #
@@ -38,7 +39,7 @@ class Var_list(wx.ListCtrl):
         wx.ListCtrl.__init__(self, parent, style=style)
 
         #self.column_headers = ["Name", "Range", "Length", "Intial Value"]
-        self.column_headers = ["Name", "Range", "Intial Value"]
+        self.column_headers = ["Nimi", "Võimalikud väärtused", "Algväärtus"]
         self.columns = len(self.column_headers)
         self.headers()
         self.calculate_mins()
@@ -84,7 +85,7 @@ class Var_win(wx.Panel):
         self.list = Var_list(self)
         self.update_list()
         
-        box = wx.StaticBox(self, -1, 'Variables')
+        box = wx.StaticBox(self, -1, 'Muutujad')
         sboxsizer = wx.StaticBoxSizer(box, wx.VERTICAL)
         sboxsizer.Add(self.list, 1, wx.EXPAND)
 
@@ -110,7 +111,7 @@ class Var_win(wx.Panel):
                 #self.list.SetStringItem(index, 3, data[2])
             
         # add a marker to allow for new variables
-        index = self.list.InsertStringItem(sys.maxint, "<NEW>")
+        index = self.list.InsertStringItem(sys.maxint, "<UUS>")
         self.list.SetStringItem(index, 1, "")
         self.list.SetStringItem(index, 2, "")
         item = self.list.GetItem(index)
@@ -135,13 +136,13 @@ class Var_win(wx.Panel):
         old_len = 0
         
         if (index != None):
-            title = "Edit variable"
+            title = "Muutuja muutmine"
             key = self.list.GetItemText(index)
             var_data = win_data.vars_get(key)
             data = (key, var_data[0], var_data[1], var_data[2])
             old_len = int(var_data[1])
         else:
-            title = "Add variable"
+            title = "Muutuja lisamine"
             data = NEW_DATA
 
         dialog = Var_dialog(self, title, data)
@@ -286,10 +287,10 @@ class Var_dialog(wx.Dialog):
         self.data = data
 
         labels = []
-        labels.append(wx.StaticText(self, -1, "Variable name:", ))
-        labels.append(wx.StaticText(self, -1, "Variable range:"))
+        labels.append(wx.StaticText(self, -1, "Muutuja nimi:", ))
+        labels.append(wx.StaticText(self, -1, "Võimalikud väärtused:"))
         #labels.append(wx.StaticText(self, -1, "Variable length:"))
-        labels.append(wx.StaticText(self, -1, "Initial value (optional):"))
+        labels.append(wx.StaticText(self, -1, "Algväärtus (pole kohustuslik):"))
 
         self.fields = []
         self.fields.append(wx.TextCtrl(self, -1, data[0], size=(150, -1)))
