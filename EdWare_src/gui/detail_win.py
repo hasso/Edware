@@ -68,7 +68,7 @@ S_NAME = "+/- 32767"
 #tone_notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 tone_notes = ["A (6. oktav)", "A# (6. oktav)", "B (6. oktav)", "C", "C#", "D", "D#", "E", "F", "F#",
               "G", "G#", "A", "A#", "B", "C (8. oktav)", "Paus"]
-tone_durations = ["kuueteistkümnendik", "kaheksandik", "veerandnoot", "poolnoot", "täisnoot"]
+tone_durations = [u"kuueteistkümnendik", "kaheksandik", "veerandnoot", "poolnoot", u"täisnoot"]
 
 TRACKER_0_STATUS = "Valgust peegeldaval pinnal"
 TRACKER_1_STATUS = "Mitte peegeldaval pinnal"
@@ -77,15 +77,15 @@ TRACKER_1_STATUS = "Mitte peegeldaval pinnal"
 EVENT_DICT = {'Nupud': (
                   ('Kolmnurkse nupu vajutus', ('_devices', 0), 'button'),
                   #('Square button pressed', ('_devices', 1), 'button'),
-                  ('Ümmarguse nupu vajutus', ('_devices', 2), 'button'),),
+                  (u'Ümmarguse nupu vajutus', ('_devices', 2), 'button'),),
               'Mahalugev taimer': (
-                  ('Taimer jõudis nulli', ('_timers', 0), 'timer'),),
+                  (u'Taimer jõudis nulli', ('_timers', 0), 'timer'),),
               #'Left Drive' : (
               #    ('Left Strain detected', (None, 0), 'motor'),),
               'Mootor' : (
                   ('Suur koormus tuvastatud', (None, 0), 'motor'),),
               'Muusika' : (
-                  ('Meloodia mängitud', (None, 0), 'timer'),),
+                  (u'Meloodia mängitud', (None, 0), 'timer'),),
               'Plaksu tuvastus' : (
                   ('Plaks tuvastatud', (None, 2), 'clap'),),
               'Andmed teiselt Edisonilt': (
@@ -133,8 +133,8 @@ MOTOR_P_BL = "Tagasi vasakule"
 MOTOR_P_BR = "Tagasi paremale"
 MOTOR_P_SR = "Spinn paremale"
 MOTOR_P_SL = "Spinn vasakule"
-MOTOR_P_RT_90 = "Pööre paremale 90°"
-MOTOR_P_LT_90 = "Pööre vasakule 90°"
+MOTOR_P_RT_90 = u"Pööre paremale 90°"
+MOTOR_P_LT_90 = u"Pööre vasakule 90°"
 
 
 MOTOR_CODE = {"F":0x80, "B":0x40, "S":0xc0, "FD":0xa0, "BD":0x60}
