@@ -91,10 +91,10 @@ EVENT_DICT = {'Nupud': (
               'Andmed teiselt Edisonilt': (
                   ('IR Character', (None, 0), 'irrx'),),
               'Takistuse tuvastus' : (
-                  ('Takistus ees', (None,4), 'obstacle'),
-                  ('Takistus vasakul', (None,5), 'obstacle'),
-                  ('Takistus paremal', (None,3), 'obstacle'),
-                  ('Takistus tuvastatud', (None,6), 'obstacle'),),
+                  ('Tuvastatud takistus ees', (None,4), 'obstacle'),
+                  ('Tuvastatud takistus vasakul', (None,5), 'obstacle'),
+                  ('Tuvastatud takistus paremal', (None,3), 'obstacle'),
+                  ('Tuvastatud mistahes takistus', (None,6), 'obstacle'),),
               'Andmed puldilt': (
                   ('Puldi kood #0', (None, 1), 'remote'),
                   ('Puldi kood #1', (None, 1), 'remote'),
@@ -113,7 +113,7 @@ EVENT_DICT = {'Nupud': (
               }
 
 EVENT_ALIASES = [(MOTHERBOARD, "Nupud"), (MOTHERBOARD, "Mahalugev taimer"),
-                 ("Right_Motor", "Mootor"), ("SOUNDER1", "Muusika"), ("SOUNDER1", "Plaksu tuvastus"),
+                 ("Parem_mootor", "Mootor"), ("SOUNDER1", "Muusika"), ("SOUNDER1", "Plaksu tuvastus"),
                  ("IR_RECEIVER1", "Andmed teiselt Edisonilt"), ("IR_RECEIVER1", "Takistuse tuvastus"),
                  ("IR_RECEIVER1", "Andmed puldilt"), ("LINE_TRACKER1", "Joone tuvastus") ]
 
@@ -1420,7 +1420,7 @@ class Detail_win(wx.ScrolledWindow):
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
         self.prop_title = bric_data.get_bric_prop_title(self.name)
-        self.module_aliases = [("Left_LED", "Left light level"), ("Right_LED", "Right light level"),
+        self.module_aliases = [("Vasem_LED", "Left light level"), ("Parem_LED", "Right light level"),
                                ("LINE_TRACKER1", "Line light level")]
 
         values = None
@@ -1515,7 +1515,7 @@ class Detail_win(wx.ScrolledWindow):
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
         self.prop_title = bric_data.get_bric_prop_title(self.name)
-        self.module_aliases = [("Left_Motor", "Left drive"), ("Right_Motor", "Right drive")]
+        self.module_aliases = [("Vasem_mootor", "Left drive"), ("Parem_mootor", "Right drive")]
                                   
         values = None
         if (self.prop_title):

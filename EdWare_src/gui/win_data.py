@@ -674,11 +674,11 @@ def set_edison_configuration():
     config_add(8, "Motor B")              # id=7
     config_add(11, "LED")                 # id=8
 
-    config_change_name(3, "Right Motor")  # id=3
-    config_change_name(8, "Left Motor")   # id=7
+    config_change_name(3, "Parem Mootor") # id=3
+    config_change_name(8, "Vasem Mootor") # id=7
 
-    config_change_name(1, "Right LED")    # id=2
-    config_change_name(11, "Left LED")    # id=8
+    config_change_name(1, "Parem LED")    # id=2
+    config_change_name(11, "Vasem LED")   # id=8
 
     # Mark in use so that can dispense with saving this info
     # in JSON
