@@ -39,7 +39,7 @@ class Var_list(wx.ListCtrl):
         wx.ListCtrl.__init__(self, parent, style=style)
 
         #self.column_headers = ["Name", "Range", "Length", "Intial Value"]
-        self.column_headers = ["Nimi", "Võimalikud väärtused", "Algväärtus"]
+        self.column_headers = ["Nimi", "Muutumispiirkond", "Algväärtus"]
         self.columns = len(self.column_headers)
         self.headers()
         self.calculate_mins()

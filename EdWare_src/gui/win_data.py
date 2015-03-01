@@ -674,8 +674,8 @@ def set_edison_configuration():
     config_add(8, "Motor B")              # id=7
     config_add(11, "LED")                 # id=8
 
-    config_change_name(3, "Parem Mootor") # id=3
-    config_change_name(8, "Vasem Mootor") # id=7
+    config_change_name(3, "Parem mootor") # id=3
+    config_change_name(8, "Vasem mootor") # id=7
 
     config_change_name(1, "Parem LED")    # id=2
     config_change_name(11, "Vasem LED")   # id=8
@@ -1340,7 +1340,7 @@ def status_file(file_name):
     else:
         mod = " "
 
-    tdata.windows['status'].SetStatusText("%s File: %s" % (mod, file_name), 2)
+    tdata.windows['status'].SetStatusText("%s Fail: %s" % (mod, file_name), 2)
 
 def status_space(used, total):
     #tdata.windows['status'].SetStatusText("Memory - Used:%d Total:%d" % (used, total), 1)

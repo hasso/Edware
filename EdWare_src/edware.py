@@ -96,14 +96,14 @@ class Bricworks_frame(wx.Frame):
         self.splitter_done = False
         self.splitter_attempts = 0
 
-        self.menu_data = (("&File",
-                           ("New", "Start a new program", self.menu_new_edison),
-                           ("&Open", "Open an existing program", self.menu_open),
+        self.menu_data = (("&Fail",
+                           ("Uus", "Start a new program", self.menu_new_edison),
+                           ("&Ava", "Open an existing program", self.menu_open),
                            ("", "", ""),
-                           ("&Save", "Save the current program", self.menu_save),
-                           ("Save &As", "Save the current program under a new name", self.menu_saveas),
+                           ("&Salvesta", "Save the current program", self.menu_save),
+                           ("Salvesta &kui", "Save the current program under a new name", self.menu_saveas),
                            ("", "", ""),
-                           ("&Exit", "Exit EdWare", self.menu_exit)),
+                           ("&Välju", "Exit EdWare", self.menu_exit)),
 
 
                           ("&Edisoni programmeerimine",
@@ -117,9 +117,9 @@ class Bricworks_frame(wx.Frame):
                            ("&Laadi uus püsivara Edisoni", "Download new firmware to Edison",
                             self.menu_edison_firmware),
                            ),
-                          ("&Help",
-                           ("&Help", "Display help for Edison EdWare", self.menu_help),
-                           ("&About", "Display information about Edison EdWare", self.menu_about)))
+                          ("&Abi",
+                           ("&Abi", "Display help for Edison EdWare", self.menu_help),
+                           ("&Teave", "Display information about Edison EdWare", self.menu_about)))
 
 
         self.init_status_bar()
@@ -241,7 +241,7 @@ class Bricworks_frame(wx.Frame):
 
     def set_adv_mode(self):
         # advanced mode
-        id = self.menu_bar.FindMenuItem("&File", "&New - Advanced")
+        id = self.menu_bar.FindMenuItem("&Fail", "&New - Advanced")
         self.menu_bar.FindItemById(id).Enable(True)
 ##        id = self.menu_bar.FindMenuItem("&Settings", "&USB Device")
 ##        self.menu_bar.FindItemById(id).Enable(True)
@@ -469,7 +469,7 @@ class Bricworks_frame(wx.Frame):
 
     def change_dirty(self, dirty):
         "Modify the menu items that change with dirty/not dirty"
-        save_id = self.menu_bar.FindMenuItem("&File", "&Save")
+        save_id = self.menu_bar.FindMenuItem("&Fail", "&Salvesta")
         self.menu_bar.FindItemById(save_id).Enable(dirty)
         if (not dirty):
             gui.win_data.update_dirty(False)
@@ -526,7 +526,7 @@ class Bricworks_frame(wx.Frame):
 
         self.tool_bar.AddSeparator()
         self.add_prog_id = wx.NewId()
-        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, "Programmeeri Edison", size=(140,-1))
+        self.add_prog_button = wx.Button(self.tool_bar, self.add_prog_id, "Programmeeri Edison", size=(180,-1))
         self.tool_bar.AddControl(self.add_prog_button)
         self.Bind(wx.EVT_BUTTON, self.on_program_button, id=self.add_prog_id)
 
@@ -558,13 +558,13 @@ class Bricworks_frame(wx.Frame):
 
     def on_program_button(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_downloader("", "Download over audio")
+        dialog = gui.downloader.audio_downloader("", "Üle audio allalaadimine")
         result = dialog.ShowModal()
         dialog.Destroy()
 
     def menu_edison_program(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_downloader("", "Download over audio")
+        dialog = gui.downloader.audio_downloader("", "Üle audio allalaadimine")
         result = dialog.ShowModal()
         dialog.Destroy()
 
@@ -576,7 +576,7 @@ class Bricworks_frame(wx.Frame):
 
     def menu_new_edison(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Unsaved program.")):
+        if (self.handle_unsaved_changes("Salvestamata programm.")):
             gui.win_data.clear_pdata()
             self.set_basic_mode()
             self.set_edison_modules()
@@ -588,11 +588,11 @@ class Bricworks_frame(wx.Frame):
 
     def menu_open(self, event):
         gui.win_data.selection_drop_all()
-        if (not self.handle_unsaved_changes("Unsaved program.")):
+        if (not self.handle_unsaved_changes("Salvestamata programm.")):
             return
         gui.win_data.clear_pdata()
-        load_path = wx.FileSelector("Open program", default_path=self.save_path,
-                                    wildcard="EdWare files (*.edw)|*.edw|All files (*.*)|*.*",
+        load_path = wx.FileSelector("Programmi avamine", default_path=self.save_path,
+                                    wildcard="EdWare failid (*.edw)|*.edw|Kõik failid (*.*)|*.*",
                                     flags=wx.OPEN)
 
         if (load_path):

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # * **************************************************************** **
 #
 # File: downloader.py
@@ -227,12 +228,12 @@ def check_size():
     vars = win_data.vars_stats()
     program_bytes = len(download_bytes)-2
 
-    message = "Program size (bytes): %d\n" % (program_bytes,)
+    message = "Programmi suurus (baitides): %d\n" % (program_bytes,)
     message += '\n'
-    message += "Variables (%s) used: %d, max: %d\n" % (vars[0][0], vars[1][0], vars[2][0])
-    message += "Variables (%s) used: %d, max: %d\n" % (vars[0][1], vars[1][1], vars[2][1])
+    message += "Kasutatud (%s) muutujaid: %d, maks.: %d\n" % (vars[0][0], vars[1][0], vars[2][0])
+    message += "Kasutatud (%s) muutujaid: %d, maks.: %d\n" % (vars[0][1], vars[1][1], vars[2][1])
 
-    wx.MessageBox(message, caption="Program Size", style = wx.ICON_INFORMATION|wx.OK)
+    wx.MessageBox(message, caption="Programmi suurus", style = wx.ICON_INFORMATION|wx.OK)
 
 # --------------- USB dialog ----------------------------------
 
@@ -336,11 +337,11 @@ class audio_downloader(wx.Dialog):
             self.SetBackgroundColour("lightgrey")
         #print self.GetBackgroundColour()
 
-        self.progress_prompt = wx.StaticText(self, -1, "Download progress:")
+        self.progress_prompt = wx.StaticText(self, -1, "Allalaadimise edenemine:")
         self.gauge = wx.Gauge(self, -1, range=100)
         self.gauge.SetMinSize((500, -1))
-        self.start = wx.Button(self, -1, "Start Download")
-        self.cancel = wx.Button(self, -1, "Cancel Download")
+        self.start = wx.Button(self, -1, "Alusta allalaadimist")
+        self.cancel = wx.Button(self, -1, "Katkesta allalaadimine")
         self.help_text = wx.StaticText(self, -1, "")
         
         grid = wx.FlexGridSizer(3 ,1, 5, 5)
@@ -371,7 +372,7 @@ class audio_downloader(wx.Dialog):
         self.gauge.SetRange(self.byte_count)
         self.gauge.SetValue(0)
         
-        self.help_text.SetLabel("Download size is %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel("Allalaetava programmi suurus on %d baiti." % (self.byte_count,))
 
         # convert to wav file
         WAV_FILE = os.path.join(paths.get_store_dir(), "program.wav")
@@ -392,7 +393,7 @@ class audio_downloader(wx.Dialog):
         
         # can't start twice so disable this button
         self.start.Disable()
-        self.help_text.SetLabel("Starting download of %d bytes." % (self.byte_count,))
+        self.help_text.SetLabel("%d baidi allalaadimise alustamine." % (self.byte_count,))
         self.gauge.SetValue(0)
         self.gauge.Update()
         self.Update()
@@ -466,7 +467,7 @@ class audio_downloader(wx.Dialog):
 
             
         #self.gauge.SetValue(self.byte_count)
-        self.help_text.SetLabel("Finished downloading")
+        self.help_text.SetLabel("Allalaadimine lõpetatud")
         self.start.Enable()
 
         self.Refresh()

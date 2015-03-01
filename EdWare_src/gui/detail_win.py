@@ -542,7 +542,7 @@ class Detail_win(wx.ScrolledWindow):
         grid = wx.GridBagSizer(5, 5)
         grid_line = 0
         
-        rbs = self.make_radio_buttons(["Noot", "Meloodiastring"])
+        rbs = self.make_radio_buttons(["Noot", "Meloodia"])
         modules = win_data.config_device_names('Sounder')
         mod_choice = self.make_combo(modules)
 
@@ -797,16 +797,16 @@ class Detail_win(wx.ScrolledWindow):
         
         if (self.name == 'LED'):
             mod_type = 'LED'
-            levels = ['Sisse', 'Välja']
+            levels = ['Sisse', u'Välja']
             prompt = "LED:"
 
         elif (self.name == "Obstacle Detection"):
             mod_type = 'IR Transmitter'
-            levels = ['Sisse', 'Välja']
+            levels = ['Sisse', u'Välja']
             prompt = "Takistuse tuvastus infrapuna saatjaga:"
         else:
             mod_type = 'Line Tracker'
-            levels = ['Sisse', 'Välja']
+            levels = ['Sisse', u'Välja']
             prompt = "Joone jälgija LED:"
 
         modules = win_data.config_device_names(mod_type)
@@ -896,7 +896,7 @@ class Detail_win(wx.ScrolledWindow):
                 mask = 1
 
             if (input[2] == CONSTANT):
-                if (input[1] == 'Off'):
+                if (input[1] == u'Välja'):
                     code_lines.append("bitclr $%d %s" % (bit, win_data.make_mod_reg(input[0], output)))
                 else:
                     code_lines.append("bitset $%d %s" % (bit, win_data.make_mod_reg(input[0], output)))
