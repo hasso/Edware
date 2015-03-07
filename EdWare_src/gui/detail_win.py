@@ -803,7 +803,7 @@ class Detail_win(wx.ScrolledWindow):
         elif (self.name == "Obstacle Detection"):
             mod_type = 'IR Transmitter'
             levels = ['Sisse', u'Välja']
-            prompt = "Takistuse tuvastus infrapuna saatjaga:"
+            prompt = "Takistuse tuvastus:"
         else:
             mod_type = 'Line Tracker'
             levels = ['Sisse', u'Välja']
@@ -1281,7 +1281,7 @@ class Detail_win(wx.ScrolledWindow):
             self.add_with_prompt(grid, (grid_line,0), MODULE_PROMPT, (mod_choice,))
             grid_line += 1
 
-        self.add_with_prompt(grid, (grid_line,0), "Lugem muutujasse:", (ctrl,))
+        self.add_with_prompt(grid, (grid_line,0), "Muutujasse:", (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1420,8 +1420,8 @@ class Detail_win(wx.ScrolledWindow):
         self.dirty = False
         self.name = win_data.program().get_bric_name(bric_id)
         self.prop_title = bric_data.get_bric_prop_title(self.name)
-        self.module_aliases = [("Vasem_LED", "Left light level"), ("Parem_LED", "Right light level"),
-                               ("LINE_TRACKER1", "Line light level")]
+        self.module_aliases = [("Vasem_LED", "Vasem valgussensor"), ("Parem_LED", "Parem valgussensor"),
+                               ("LINE_TRACKER1", u"Joonejälgija sensor")]
 
         values = None
         if (self.prop_title):
@@ -1450,7 +1450,7 @@ class Detail_win(wx.ScrolledWindow):
         self.rbs = None
 
         self.add_with_prompt(grid, (0,0), "Sensor:", (mod_choice,))
-        self.add_with_prompt(grid, (1,0), "Lugem muutujasse:", (ctrl,))
+        self.add_with_prompt(grid, (1,0), "Muutujasse:", (ctrl,))
 
         self.bind_event_handlers()
 
@@ -1635,7 +1635,7 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (ctrl,)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Lugem muutujasse:", (ctrl,), extra_info=extra)
+        self.add_with_prompt(grid, (0,0), "Muutujasse:", (ctrl,), extra_info=extra)
 
         self.bind_event_handlers()
 
@@ -2077,9 +2077,9 @@ class Detail_win(wx.ScrolledWindow):
         grid = wx.GridBagSizer(5, 5)
 
         if (self.name == 'Increment'):
-            prompt = "Üks juurde muutujale:"
+            prompt = "Muutujale:"
         else:
-	    prompt = "Üks maha muutujast:"
+	    prompt = "Muutujast:"
 
         choices = win_data.vars_names()
         ctrl = self.make_combo(choices, add_const=False)
@@ -2173,7 +2173,7 @@ class Detail_win(wx.ScrolledWindow):
         self.rbs = None
 
         self.add_with_prompt(grid, (0,0), "Väärtus:", (value,))
-	self.add_with_prompt(grid, (1,0), "Muutuja:", (var,))
+        self.add_with_prompt(grid, (1,0), "Muutujasse:", (var,))
 
         self.bind_event_handlers()
 
@@ -2252,8 +2252,8 @@ class Detail_win(wx.ScrolledWindow):
         self.cons_cb = (copy_from, copy_to)
         self.rbs = None
 
-        self.add_with_prompt(grid, (0,0), "Kopeerimine muutujast:", (copy_from,))
-        self.add_with_prompt(grid, (1,0), "Kopeerimine muutujasse:", (copy_to,))
+        self.add_with_prompt(grid, (0,0), "Muutujast:", (copy_from,))
+        self.add_with_prompt(grid, (1,0), "Muutujasse:", (copy_to,))
 
         self.bind_event_handlers()
 
@@ -2831,7 +2831,7 @@ class Detail_win(wx.ScrolledWindow):
 ##        print self.cons_tc
 ##        print self.rbs
 
-        self.add_with_prompt(grid, (0,1), "Variable:", main_var, ctrl_span=(1,2), expand=False)
+        self.add_with_prompt(grid, (0,1), "Muutuja:", main_var, ctrl_span=(1,2), expand=False)
 
         grid.Add(rbs[0], (1,0), flag=wx.ALIGN_CENTRE_VERTICAL)
         self.add_with_prompt(grid, (1,1), "Tehe:", basic_op)
