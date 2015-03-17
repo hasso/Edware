@@ -341,7 +341,7 @@ class audio_downloader(wx.Dialog):
         self.gauge = wx.Gauge(self, -1, range=100)
         self.gauge.SetMinSize((500, -1))
         self.start = wx.Button(self, -1, "Alusta allalaadimist")
-        self.cancel = wx.Button(self, -1, "Katkesta allalaadimine")
+        self.cancel = wx.Button(self, -1, "Katkesta")
         self.help_text = wx.StaticText(self, -1, "")
         
         grid = wx.FlexGridSizer(3 ,1, 5, 5)

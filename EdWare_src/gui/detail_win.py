@@ -1467,8 +1467,8 @@ class Detail_win(wx.ScrolledWindow):
     def readlight_convert(self, input, command, name, bric_id):
         """Data: mod, var"""
         #print "readlight_convert", bric_id, command, name, input
-        self.module_aliases = [("Left_LED", "Left light level"), ("Right_LED", "Right light level"),
-                               ("LINE_TRACKER1", "Line light level")]
+        self.module_aliases = [("Vasem_LED", "Vasem valgussensor"), ("Parem_LED", "Parem valgussensor"),
+                               ("LINE_TRACKER1", u"Joonejälgija sensor")]
 
         if (command == 'from_ids'):
             output= [win_data.config_name_from_id(input[0]), win_data.vars_get_name(input[1])]

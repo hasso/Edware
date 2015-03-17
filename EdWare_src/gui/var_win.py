@@ -304,11 +304,13 @@ class Var_dialog(wx.Dialog):
             grid.Add(self.fields[i])
         
         del_button = wx.Button(self, wx.ID_DELETE)
+        del_button.SetLabel("Kustuta")
         if (data[0] == ""):
             del_button.Enable(False)
         ok_button = wx.Button(self, wx.ID_OK)
         ok_button.SetDefault()
         cancel_button = wx.Button(self, wx.ID_CANCEL)
+        cancel_button.SetLabel("Tühista")
 
         sizer = wx.BoxSizer(wx.VERTICAL)
         sizer.Add(grid, 1, flag=wx.ALL, border=10)

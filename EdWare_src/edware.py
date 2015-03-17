@@ -570,7 +570,7 @@ class Bricworks_frame(wx.Frame):
 
     def menu_edison_firmware(self, event):
         gui.win_data.selection_drop_all()
-        dialog = gui.downloader.audio_firmware_downloader("", "Download new FIRMWARE over audio")
+        dialog = gui.downloader.audio_firmware_downloader("", "Uue püsivara allalaadimine")
         result = dialog.ShowModal()
         dialog.Destroy()
 
@@ -604,8 +604,8 @@ class Bricworks_frame(wx.Frame):
         #print "Load_path", load_path
         if (not os.path.isfile(load_path)):
 
-            wx.MessageBox("Can't open the file: %s" % (load_path,),
-                          "Error while opening program.", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox("Faili ei õnnestu avada: %s" % (load_path,),
+                          "Viga programmi avamisel.", wx.OK | wx.ICON_ERROR)
         else:
             gui.win_data.clear_pdata()
             (path, ext) = os.path.splitext(load_path)
@@ -661,21 +661,21 @@ class Bricworks_frame(wx.Frame):
 
     def menu_exit(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Exiting with a modified program.")):
+        if (self.handle_unsaved_changes("Väljumine muudetud programmiga.")):
             self.change_dirty(False)
             self.Close()
 
     def on_close(self, event):
         gui.win_data.selection_drop_all()
-        if (self.handle_unsaved_changes("Exiting with a modified program.")):
+        if (self.handle_unsaved_changes("Väljumine muudetud programmiga.")):
             self.session_save()
             self.Destroy()
 
     def handle_unsaved_changes(self, title):
         if (gui.win_data.is_data_dirty()):
 
-            result = wx.MessageBox("Your program has changes that have not been saved.\n\n" +\
-                                   "Would you like to save the changes first?",
+            result = wx.MessageBox("Su programmis on muudatusi, mis pole veel salvestatud.\n\n" +\
+                                   "Soovid sa need kõigepealt salvestada?",
                                    title,
                                    wx.YES_NO | wx.CANCEL | wx.YES_DEFAULT | wx.ICON_QUESTION)
             if (result == wx.YES):
@@ -699,7 +699,7 @@ class Bricworks_frame(wx.Frame):
 
 
     def offer_save(self, path, filename):
-        save_path = wx.FileSelector("Save program", default_path=path, default_filename=filename,
+        save_path = wx.FileSelector("Programmi salvestamine", default_path=path, default_filename=filename,
                                     flags=wx.SAVE|wx.OVERWRITE_PROMPT)
         if (save_path and not os.path.isfile(save_path) and os.path.splitext(save_path)[1] == ""):
             save_path += ".edw"
