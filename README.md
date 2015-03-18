@@ -1,21 +1,13 @@
-Edison EdWare for PC, Mac, Linux and RaspberryPi
-================================================
+## Edison EdWare PC, Mac, Linux ja RaspberryPi platvormidele
 
-Repository for the development of PC software (*EdWare*) to program the Edison
-robot -- see [Meet Edison](http://meetedison.com) for the awesome robot.
+See on eestikeelne EdWare [Edisoni roboti](http://meetedison.com) programmeerimiseks. Kuigi see pole veel valmis, see on üleüldse häkk ja selles on ka teadaolevaid probleeme, on see juba õppetööks kasutatav.
 
-This software is derived from Bricworks created in 2006 to program
-Microbric's Ai2 robot. The code still has lots of elements
-from Bricworks so isn't a clean, well organised, code base :(.
+### Teadaolevad probleemid
 
-Look into the EdWare_src/docs directory for more documentation.
+* Kaugeltki kõik pole tõlgitud. Programmeerimise osa peaks kõik tõlgitud olema, tõlkimata on veel suur osa veateadetest ja nendega seotud dialoogidest.
+* Komaga arvude sisestamisel tuleb kasutada koma asemel punkti.
+* Muutujate nimes tohib kasutada ainult 7-bitisesse ASCII tabelisse kuuluvaid sümboleid - täpitähti neis olla ei tohi.
 
-et-hack branch
-==============
+## et-hack branch for Edison EdWare
 
-This branch must not used for any real work. It's here for testing purposes
-only until EdWare gets proper i18n support.
-
-Selle haru kood on siin ainult testimiseks ja mitte reaalseks tööks. Isegi
-kui selles tehtud programmid su Edisoni maha ei põleta, pole need originaaliga
-kokkusobivad jpm.
+Edison EdWare in Estonian. Although usable for teaching purposes, it's a hack (until EdWare gets a proper i18n/l10n support) and should be treated with care.
